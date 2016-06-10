@@ -39,7 +39,7 @@
         <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     </head>
 
-    <body>  
+    <body ng-app="Sportify" ng-controller="EventsController">
         <!-- layout-->
         <div id="layout">
             <!-- Header-->
@@ -116,6 +116,25 @@
 
                 <!-- Content Central -->
                 <div class="container padding-top">
+								
+									 <div class="row">
+											<div style="font-weight: bold">Възрастова група</div>
+											<label style="margin-right: 20px;font-weight: normal"><input type="checkbox" ng-model="ageFilterAll" ng-change="onAgeRangeClickAll()">Всички</label>
+											<label style="margin-right: 20px;font-weight: normal"><input type="checkbox" ng-model="ageFilter['1']" ng-change="onAgeRangeClick(1)">1-5</label>
+											<label style="margin-right: 20px;font-weight: normal"><input type="checkbox" ng-model="ageFilter['2']" ng-change="onAgeRangeClick(2)">5-10</label>
+											<label style="margin-right: 20px;font-weight: normal"><input type="checkbox" ng-model="ageFilter['3']" ng-change="onAgeRangeClick(3)">16-21</label>
+											<label style="margin-right: 20px;font-weight: normal"><input type="checkbox" ng-model="ageFilter['4']" ng-change="onAgeRangeClick(4)">21+</label>
+									</div>
+									
+									 <div class="row" style="margin-bottom: 30px">
+											<div style="font-weight: bold">Спорт</div>
+											<label style="margin-right: 20px;font-weight: normal"><input type="checkbox" ng-model="typeFilterAll" ng-change="onTypeFilterClickAll()">Всички</label>
+											<label style="margin-right: 20px;font-weight: normal"><input type="checkbox" ng-model="typeFilter['football']" ng-change="onTypeFilterClick('football')">Футбол</label>
+											<label style="margin-right: 20px;font-weight: normal"><input type="checkbox" ng-model="typeFilter['bmx']" ng-change="onTypeFilterClick('bmx')">Bmx</label>
+											<label style="margin-right: 20px;font-weight: normal"><input type="checkbox" ng-model="typeFilter['motocross']" ng-change="onTypeFilterClick('motocross')">Motocross</label>
+									</div>
+										
+										
                     <div class="row">
                         <!-- content Column Left -->
                         <div class="col-md-8">                     
@@ -124,208 +143,24 @@
                                 <!-- blog post-->  
                                 <ul class="events-carousel events-no-carousel">
                                     <!-- Item blog post -->  
-                                    <li class="col-xs-6 col-sm-6 col-md-4">
+                                    <li class="col-xs-6 col-sm-6 col-md-4" ng-repeat="item in viewItems">
                                         <div class="header-post">
                                             <div class="date">
-                                                <span>08/jan</span>
-                                                2014
+                                                <span>{{item.date}}</span>
+                                                2016
                                             </div>
-                                            <a href="single-news.html"><img src="img/blog/1.jpg" alt=""></a>
+                                            <a href="single-news.html"><img src="img/blog/{{item.picId}}.jpg" alt=""></a>
                                             <div class="meta-tag">
                                                 <ul>
-                                                    <li><i class="fa fa-user"></i><a href="#">Admin</a></li>
+                                                    <li><i class="fa {{item.icon}}"></i><a href="#">Admin</a></li>
                                                     <li><i class="fa fa-folder-open"></i><a href="#">Design</a></li>
                                                     <li class="text-right"><i class="fa fa-comment"></i><a href="#">10</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="info-post">
-                                            <h4><a href="single-news.html">CTA Placement</a></h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-                                    </li>
-                                    <!-- End Item blog post -->
-																		
-																		<!-- Item blog post -->  
-                                    <li class="col-xs-6 col-sm-6 col-md-4">
-                                        <div class="header-post">
-                                            <div class="date">
-                                                <span>08/jan</span>
-                                                2014
-                                            </div>
-                                            <a href="single-news.html"><img src="img/blog/1.jpg" alt=""></a>
-                                            <div class="meta-tag">
-                                                <ul>
-                                                    <li><i class="fa fa-user"></i><a href="#">Admin</a></li>
-                                                    <li><i class="fa fa-folder-open"></i><a href="#">Design</a></li>
-                                                    <li class="text-right"><i class="fa fa-comment"></i><a href="#">10</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="info-post">
-                                            <h4><a href="single-news.html">CTA Placement</a></h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-                                    </li>
-                                    <!-- End Item blog post -->
-																		
-																		<!-- Item blog post -->  
-                                    <li class="col-xs-6 col-sm-6 col-md-4">
-                                        <div class="header-post">
-                                            <div class="date">
-                                                <span>08/jan</span>
-                                                2014
-                                            </div>
-                                            <a href="single-news.html"><img src="img/blog/1.jpg" alt=""></a>
-                                            <div class="meta-tag">
-                                                <ul>
-                                                    <li><i class="fa fa-user"></i><a href="#">Admin</a></li>
-                                                    <li><i class="fa fa-folder-open"></i><a href="#">Design</a></li>
-                                                    <li class="text-right"><i class="fa fa-comment"></i><a href="#">10</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="info-post">
-                                            <h4><a href="single-news.html">CTA Placement</a></h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-                                    </li>
-                                    <!-- End Item blog post -->
-																		
-																		<!-- Item blog post -->  
-                                    <li class="col-xs-6 col-sm-6 col-md-4">
-                                        <div class="header-post">
-                                            <div class="date">
-                                                <span>08/jan</span>
-                                                2014
-                                            </div>
-                                            <a href="single-news.html"><img src="img/blog/1.jpg" alt=""></a>
-                                            <div class="meta-tag">
-                                                <ul>
-                                                    <li><i class="fa fa-user"></i><a href="#">Admin</a></li>
-                                                    <li><i class="fa fa-folder-open"></i><a href="#">Design</a></li>
-                                                    <li class="text-right"><i class="fa fa-comment"></i><a href="#">10</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="info-post">
-                                            <h4><a href="single-news.html">CTA Placement</a></h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-                                    </li>
-                                    <!-- End Item blog post -->
-
-                                    <!-- Item blog post -->  
-                                    <li class="col-xs-6 col-sm-6 col-md-4">
-                                        <div class="header-post">
-                                            <div class="date">
-                                                <span>08/jan</span>
-                                                2014
-                                            </div>
-                                            <a href="single-news.html"><img src="img/blog/2.jpg" alt=""></a>
-                                            <div class="meta-tag">
-                                                <ul>
-                                                    <li><i class="fa fa-user"></i><a href="#">Admin</a></li>
-                                                    <li><i class="fa fa-folder-open"></i><a href="#">Design</a></li>
-                                                    <li class="text-right"><i class="fa fa-comment"></i><a href="#">10</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="info-post">
-                                            <h4><a href="single-news.html">Championship Final</a></h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-                                    </li>
-                                    <!-- End Item blog post -->  
-
-                                    <!-- Item blog post -->  
-                                    <li class="col-xs-6 col-sm-6 col-md-4">
-                                        <div class="header-post">
-                                            <div class="date">
-                                                <span>08/jan</span>
-                                                2014
-                                            </div>
-                                            <a href="single-news.html"><img src="img/blog/3.jpg" alt=""></a>
-                                            <div class="meta-tag">
-                                                <ul>
-                                                    <li><i class="fa fa-user"></i><a href="#">Admin</a></li>
-                                                    <li><i class="fa fa-folder-open"></i><a href="#">Design</a></li>
-                                                    <li class="text-right"><i class="fa fa-comment"></i><a href="#">10</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="info-post">
-                                            <h4><a href="single-news.html">Confidence indicators</a></h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-                                    </li>
-                                    <!-- End Item blog post -->
-
-                                    <!-- Item blog post -->  
-                                    <li class="col-xs-6 col-sm-6 col-md-4">
-                                        <div class="header-post">
-                                            <div class="date">
-                                                <span>08/jan</span>
-                                                2014
-                                            </div>
-                                            <a href="single-news.html"><img src="img/blog/4.jpg" alt=""></a>
-                                            <div class="meta-tag">
-                                                <ul>
-                                                    <li><i class="fa fa-user"></i><a href="#">Admin</a></li>
-                                                    <li><i class="fa fa-folder-open"></i><a href="#">Design</a></li>
-                                                    <li class="text-right"><i class="fa fa-comment"></i><a href="#">10</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="info-post">
-                                            <h4><a href="single-news.html">Championship Final.</a></h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-                                    </li>
-                                    <!-- End Item blog post -->
-
-                                    <!-- Item blog post -->  
-                                    <li class="col-xs-6 col-sm-6 col-md-4">
-                                        <div class="header-post">
-                                            <div class="date">
-                                                <span>08/jan</span>
-                                                2014
-                                            </div>
-                                            <a href="single-news.html"><img src="img/blog/2.jpg" alt=""></a>
-                                            <div class="meta-tag">
-                                                <ul>
-                                                    <li><i class="fa fa-user"></i><a href="#">Admin</a></li>
-                                                    <li><i class="fa fa-folder-open"></i><a href="#">Design</a></li>
-                                                    <li class="text-right"><i class="fa fa-comment"></i><a href="#">10</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="info-post">
-                                            <h4><a href="single-news.html">Great Prospects.</a></h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-                                    </li>
-                                    <!-- End Item blog post -->
-
-                                    <!-- Item blog post -->  
-                                    <li class="col-xs-6 col-sm-6 col-md-4">
-                                        <div class="header-post">
-                                            <div class="date">
-                                                <span>08/jan</span>
-                                                2014
-                                            </div>
-                                            <a href="single-news.html"><img src="img/blog/1.jpg" alt=""></a>
-                                            <div class="meta-tag">
-                                                <ul>
-                                                    <li><i class="fa fa-user"></i><a href="#">Admin</a></li>
-                                                    <li><i class="fa fa-folder-open"></i><a href="#">Design</a></li>
-                                                    <li class="text-right"><i class="fa fa-comment"></i><a href="#">10</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="info-post">
-                                            <h4><a href="single-news.html">Great Prospects.</a></h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            <h4><a href="single-news.html">{{item.title}}</a></h4>
+                                            <p>{{item.description}}</p>
                                         </div>
                                     </li>
                                     <!-- End Item blog post -->
@@ -631,6 +466,12 @@
         <script type="text/javascript" src="js/bootstrap/bootstrap.js"></script> 
         <!--MAIN FUNCTIONS-->
         <script type="text/javascript" src="js/main.js"></script>
+        <!--Angular-->
+        <script type="text/javascript" src="js/angular.min.js"></script>
+        <!--Lodash-->
+        <script type="text/javascript" src="js/lodash.js"></script>
+        <!--Controllers-->
+        <script type="text/javascript" src="js/eventsController.js"></script>
         <!-- ======================= End JQuery libs =========================== -->
  
     </body>
