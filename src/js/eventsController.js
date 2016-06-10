@@ -95,7 +95,8 @@
 			icon: 'fa-user',
 			sportType: 'bmx',
 			ageRange: '3',
-			age: '16-21г.'
+			age: '16-21г.',
+			email: null
 	};
 	
 	$scope.onTypeFilterClick = function(st) {
@@ -154,7 +155,8 @@
 			icon: 'fa-user',
 			sportType: 'bmx',
 			ageRange: '3',
-			age: '16-21г.'
+			age: '16-21г.',
+			email: null
 		};
 	};
 	
