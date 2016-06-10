@@ -9,7 +9,8 @@
 			description: 'Описание',
 			icon: 'fa-user',
 			sportType: 'football',
-			ageRange: '1'
+			ageRange: '1',
+			age: '1-5г.'
 		},
 		{
 			date: '10/Юли',
@@ -18,7 +19,8 @@
 			description: 'Описание',
 			icon: 'fa-user',
 			sportType: 'football',
-			ageRange: '2'
+			ageRange: '2',
+			age: '5-10г.'
 		},
 		{
 			date: '10/Юли',
@@ -27,7 +29,8 @@
 			description: 'Описание',
 			icon: 'fa-user',
 			sportType: 'football',
-			ageRange: '3'
+			ageRange: '3',
+			age: '16-21г.'
 		},
 		{
 			date: '10/Юли',
@@ -36,7 +39,8 @@
 			description: 'Описание',
 			icon: 'fa-user',
 			sportType: 'motocross',
-			ageRange: '4'
+			ageRange: '4',
+			age: '16-21г.'
 		},
 		{
 			date: '10/Юли',
@@ -45,7 +49,8 @@
 			description: 'Описание',
 			icon: 'fa-user',
 			sportType: 'motocross',
-			ageRange: '3'
+			ageRange: '3',
+			age: '16-21г.'
 		},
 		{
 			date: '10/Юли',
@@ -54,7 +59,8 @@
 			description: 'Описание',
 			icon: 'fa-user',
 			sportType: 'bmx',
-			ageRange: '1'
+			ageRange: '1',
+			age: '1-5г.'
 		},
 		{
 			date: '10/Юли',
@@ -63,7 +69,8 @@
 			description: 'Описание',
 			icon: 'fa-user',
 			sportType: 'bmx',
-			ageRange: '2'
+			ageRange: '2',
+			age: '5-10г.'
 		},
 		{
 			date: '10/Юли',
@@ -72,7 +79,8 @@
 			description: 'Описание',
 			icon: 'fa-user',
 			sportType: 'bmx',
-			ageRange: '3'
+			ageRange: '3',
+			age: '16-21г.'
 		}
 	  ];
 	  	
@@ -81,6 +89,14 @@
 	$scope.typeFilterAll = true;
 	$scope.ageFilter = {1 : true, 2: true ,3: true ,4: true};
 	$scope.ageFilterAll = true;
+	$scope.newEvent = {	
+			date: '10/Юли',
+			picId: 4,
+			icon: 'fa-user',
+			sportType: 'bmx',
+			ageRange: '3',
+			age: '16-21г.'
+	};
 	
 	$scope.onTypeFilterClick = function(st) {
 		$scope.typeFilterAll = $scope.typeFilter['football'] && $scope.typeFilter['bmx'] && $scope.typeFilter['motocross'];
@@ -128,6 +144,18 @@
 				return _.includes(tFilter, item.sportType);
 			});
 		}
+	};
+	
+	$scope.createEvent = function () {
+		$scope.items.push($scope.newEvent);
+		$scope.newEvent = {	
+			date: '10/Юли',
+			picId: 4,
+			icon: 'fa-user',
+			sportType: 'bmx',
+			ageRange: '3',
+			age: '16-21г.'
+		};
 	};
 	
   }]);
